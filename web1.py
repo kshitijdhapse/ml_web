@@ -12,7 +12,7 @@ def predict_note_authentication(N,P,K,temp,hum,pH,rain):
     print(prediction)
     return prediction
 def main():
-    st.title("CROP PREDICTOR")
+    # st.title("CROP PREDICTOR")
     html_temp = """
     <div style="background-color:tomato;padding:10px">
     <h2 style="color:white;text-align:center;">CROP PREDICTOR</h2>
@@ -48,12 +48,14 @@ def main():
     pH = st.text_input("pH","")
     rain = st.text_input("rain","")
     result=""
+    cropis=""
     if st.button("Predict"):
         result=predict_note_authentication(N,P,K,temp,hum,pH,rain)
-    st.success('The output is {}'.format(result))
+        cropis = ', '.join(result)
+    st.success('The predicted crop is {}'.format(cropis))
     if st.button("About"):
-        st.text("Lets LEarn")
-        st.text("Built with Streamlit")
+        st.text("Made By:")
+        st.text("Kshitij Dhapse")
 
 if __name__=='__main__':
     main()
